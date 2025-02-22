@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from 'react-type-animation';
+import './App.css';
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -13,11 +14,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#111111] text-white px-24">
-      {/* Subtle yellow gradient in background */}
-      <div className="fixed inset-0">
-        <div className="absolute inset-0 bg-yellow-400/10 blur-[100px] h-[50vh] w-[50vw] mx-auto rounded-full"></div>
-      </div>
+    <div className="min-h-screen bg-[#111111] text-white">
       {showIntro ? <IntroAnimation /> : <MainContent />}
     </div>
   );
@@ -94,19 +91,21 @@ function MainContent() {
     <div className="relative z-10">
       {/* Navbar - removed top margin completely */}
       <nav className="flex items-center justify-between p-6 rounded-3xl bg-black/30 backdrop-blur-sm border border-white/5">
-        <div className="text-xl font-mono text-white">eric</div>
-        <div className="space-x-6 py-2">
-          <a href="#home" className="text-white hover:text-yellow-300 transition-colors py-1">Home</a>
-          <a href="#education" className="text-white hover:text-yellow-300 transition-colors py-1">Education</a>
-          <a href="#publications" className="text-white hover:text-yellow-300 transition-colors py-1">Publications</a>
-          <a href="#projects" className="text-white hover:text-yellow-300 transition-colors py-1">Projects</a>
-          <a href="#contact" className="text-white hover:text-yellow-300 transition-colors py-1">Contact</a>
+        <div className="nav-container flex justify-between w-full">
+          <div className="text-xl font-mono text-white">eric</div>
+          <div className="space-x-6 py-2">
+            <a href="#home" className="text-white hover:text-yellow-300 transition-colors py-1">Home</a>
+            <a href="#education" className="text-white hover:text-yellow-300 transition-colors py-1">Education</a>
+            <a href="#publications" className="text-white hover:text-yellow-300 transition-colors py-1">Publications</a>
+            <a href="#projects" className="text-white hover:text-yellow-300 transition-colors py-1">Projects</a>
+            <a href="#contact" className="text-white hover:text-yellow-300 transition-colors py-1">Contact</a>
+          </div>
         </div>
       </nav>
 
       {/* Home Section */}
       <section id="home" className="py-20">
-        <div className="flex flex-col md:flex-row items-center gap-12">
+        <div className="container flex flex-col md:flex-row items-center gap-12">
           <div className="md:w-7/12">
             <motion.div 
               initial={{ opacity: 0 }}
@@ -144,7 +143,7 @@ function MainContent() {
               transition={{ delay: 1.8 }}
             >
               <a 
-                href="/Eric Tao Xie Master Resume.pdf" 
+                href={process.env.PUBLIC_URL + '/resume.pdf'} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="inline-flex items-center px-6 py-2 rounded-full bg-black/30 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all group"
@@ -175,7 +174,7 @@ function MainContent() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-600 blur-2xl opacity-20"></div>
               <img 
-                src="/Eric Formal Close Up Bright.png"
+                src={process.env.PUBLIC_URL + '/selfie.png'}
                 alt="Eric Xie"
                 className="relative rounded-2xl w-full object-cover aspect-[3/4]"
               />
@@ -191,6 +190,7 @@ function MainContent() {
             {/* Team cards on the left */}
             <div className="md:w-7/12">
               <div className="course-cards">
+                {/* UTFR Card */}
                 <motion.div 
                   className="bg-black/30 backdrop-blur-sm rounded-xl p-6 mb-4 border border-white/5 relative group"
                   whileHover={{ scale: 1.02 }}
@@ -204,21 +204,36 @@ function MainContent() {
                   </div>
                   <div className="absolute -right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 z-20">
                     <img 
-                      src="/2.Piston_Spring_Cap.jpg" 
+                      src={process.env.PUBLIC_URL + '/2.Piston_Spring_Cap.jpg'} 
                       alt="Brake Piston Design"
                       className="w-64 h-64 object-cover rounded-xl shadow-2xl hover-image"
                     />
                   </div>
                 </motion.div>
+
+                {/* UTAT Card */}
                 <motion.div 
-                  className="bg-black/30 backdrop-blur-sm rounded-xl p-6 mb-4 border border-white/5"
+                  className="bg-black/30 backdrop-blur-sm rounded-xl p-6 mb-4 border border-white/5 relative group overflow-visible"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <h4 className="text-xl text-white mb-2">UofT Aerospace Team</h4>
-                  <h5 className="text-yellow-400/70">Software Team - Camera Simulation</h5>
-                  <p className="text-white/60 mt-2">
-                    Developing camera simulation and localization systems in Gazebo for autonomous drone navigation.
-                  </p>
+                  <div className="relative z-10">
+                    <h4 className="text-xl text-white mb-2">UofT Aerospace Team</h4>
+                    <h5 className="text-yellow-400/70">Software Team - Camera Simulation</h5>
+                    <p className="text-white/60 mt-2">
+                      Developing camera simulation and localization systems in Gazebo for autonomous drone navigation.
+                    </p>
+                  </div>
+                  <div className="absolute -right-4 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <video 
+                      autoPlay 
+                      loop 
+                      muted 
+                      playsInline
+                      className="w-64 h-64 object-cover rounded-xl shadow-2xl hover-image"
+                    >
+                      <source src={process.env.PUBLIC_URL + '/plane-takeoff.mp4'} type="video/mp4" />
+                    </video>
+                  </div>
                 </motion.div>
               </div>
             </div>
@@ -233,10 +248,11 @@ function MainContent() {
                 Education
               </h2>
               <p className="text-xl mb-4 text-white/80">
-                Love the breath and depth of different engineering disciplines that EngSci offers. Passionate about combining theoretical knowledge with practical hands-on experience.
+                I love the breath and depth of different engineering disciplines that EngSci offers. Passionate about combining theoretical knowledge with practical hands-on experience.
               </p>
               <p className="text-xl text-white/80">
-                Check out the design teams I'm a part of!
+                Check out the university design teams I'm a part of!
+
               </p>
             </motion.div>
           </div>
@@ -257,13 +273,13 @@ function MainContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl mb-8"
+            className="text-2xl mb-8"
           >
-            My research interests lie in Computer Vision and Machine Learning.
+            My research interests lie in robotics and reinforcement learning.
           </motion.p>
           <div className="publications-grid">
             {/* Add your publications here */}
-            <p className="text-yellow-400/70">Coming soon...</p>
+            <p className="text-yellow-400/70">Coming soon summer 2025 ...</p>
           </div>
         </div>
       </section>
@@ -271,9 +287,10 @@ function MainContent() {
       {/* Projects Section */}
       <section id="projects" className="py-20">
         <div className="container">
-          <motion.h2 
+          {/* Projects Header */}
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             className="text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-600 bg-clip-text text-transparent"
           >
             Projects
@@ -282,38 +299,71 @@ function MainContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl mb-12"
+            className="text-2xl mb-8"
           >
             I'm always looking to build cool things!
           </motion.p>
 
-          {/* Project Cards */}
-          <div className="space-y-20">
-            {/* Project 1 */}
-            <motion.div 
-              className="flex flex-col md:flex-row gap-12 hover:bg-black/10 p-6 rounded-xl transition-all"
-              whileHover={{ scale: 1.02 }}
-            >
-              <div className="md:w-1/2">
-                <h3 className="text-2xl font-bold mb-4 gradient-text">Project Title</h3>
-                <p className="text-lg mb-6">
-                  Project description goes here...
+          {/* SimulEval Project */}
+          <motion.div 
+            className="project-block bg-black/30 backdrop-blur-sm rounded-xl p-8 relative group"
+            whileHover={{ scale: 1.02 }}
+          >
+            <div className="flex flex-col md:flex-row items-center gap-12">
+              {/* Project Description */}
+              <div className="md:w-6/12 order-md-1">
+                <h2 className="text-2xl font-bold mb-4">SimulEval @ FAIR</h2>
+                <p className="text-lg text-white/60">
+                  Developed features for SimulEval - FAIR's open source simultaneous translation evaluation toolkit - using Python. 
+                  Features include visualization, remote and live translation. Aided researchers in interpretting output from the wait-k algorithm. 
+                  Check out the demo!
                 </p>
-                <div className="flex gap-4">
-                  <a href="#" className="btn-primary">View Project</a>
-                  <a href="#" className="btn-secondary">GitHub</a>
+                <div className="flex gap-4 mt-6">
+                  <a 
+                    href="https://www.youtube.com/watch?v=9g8gRykOpJk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary inline-flex items-center gap-2"
+                  >
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      viewBox="0 0 24 24" 
+                      className="w-5 h-5 fill-current"
+                    >
+                      <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                    </svg>
+                    <span>Live Demo</span>
+                  </a>
+                  <a 
+                    href="https://github.com/facebookresearch/SimulEval"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary inline-flex items-center gap-2"
+                  >
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      viewBox="0 0 24 24" 
+                      className="w-5 h-5 fill-current"
+                    >
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <span>GitHub</span>
+                  </a>
                 </div>
               </div>
-              <div className="md:w-1/2">
-                <img 
-                  src="/project-image.jpg" 
-                  alt="Project"
-                  className="rounded-xl shadow-lg"
-                />
+
+              {/* Project Image */}
+              <div className="md:w-6/12 order-md-2">
+                <div className="relative overflow-hidden rounded-xl">
+                  <img 
+                    src={process.env.PUBLIC_URL + '/test.png'}
+                    alt="SimulEval Demo"
+                    className="w-full object-cover aspect-[18.5/13.7] object-[50%_15%] transition-all duration-300"
+                  />
+                </div>
               </div>
-            </motion.div>
-            {/* Add more project cards as needed */}
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -333,7 +383,7 @@ function MainContent() {
             transition={{ delay: 0.2 }}
             className="text-xl mb-8"
           >
-            Feel free to reach out at ericxie [at] gmail [dot] com
+            Feel free to reach out at erictao6666 [at] gmail [dot] com
           </motion.p>
           <div className="flex justify-center gap-6">
             <a 
@@ -362,7 +412,7 @@ function MainContent() {
 
       {/* Footer */}
       <footer className="text-center py-8 text-sm font-mono">
-        built by eric in react, © 2024
+        built by eric in react, © 2025
       </footer>
     </div>
   );

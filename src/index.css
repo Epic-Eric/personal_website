@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  background-color: #111111;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  @apply max-w-6xl mx-auto px-8;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 @layer components {
   .gradient-text {
     @apply bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent;
@@ -83,11 +101,38 @@
   animation: trace 1.3s ease-in-out forwards;
 }
 
-/* Add after your existing styles */
-.group:hover ~ section,
-.group:hover ~ div {
-  opacity: 0.2;
+/* Glow effects */
+.glow {
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* Card hover effects */
+.course-cards {
+  position: relative;
+}
+
+.course-cards .group {
   transition: opacity 0.5s ease;
+}
+
+/* When any card is hovered, dim all cards */
+.course-cards:hover .group {
+  opacity: 0.2;
+}
+
+/* But keep the hovered card at full opacity */
+.course-cards .group:hover {
+  opacity: 1 !important;
+  z-index: 10;
+}
+
+/* Ensure smooth transitions */
+.group {
+  transition: all 0.3s ease;
 }
 
 .hover-image {
@@ -101,6 +146,21 @@
   opacity: 1;
 }
 
+/* Make sure the root element takes full height */
+#root {
+  min-height: 100vh;
+  background-color: #111111;
+}
+
+/* Add these to ensure proper container spacing */
+section {
+  @apply py-20;
+}
+
+.nav-container {
+  @apply max-w-6xl mx-auto px-8;
+}
+
 /* Add to your existing keyframes section */
 @keyframes fade-content {
   from {
@@ -109,4 +169,77 @@
   to {
     opacity: 0.2;
   }
+}
+
+/* Project styles */
+.project-image-wrap {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.project-image-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 2px; /* This creates the border width */
+  background: linear-gradient(to right, var(--yellow-400), var(--yellow-600));
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-image-wrap:hover::before {
+  opacity: 1;
+}
+
+.project-image-wrap img {
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.project-image-wrap:hover img {
+  transform: scale(1.02);
+}
+
+.project-block {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.project-block:hover {
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2),
+              inset 0 0 20px rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+/* Optional: add a subtle gradient overlay on hover */
+.project-block::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 215, 0, 0.1),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-block:hover::after {
+  opacity: 1;
 } 

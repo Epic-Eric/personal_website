@@ -5,6 +5,11 @@ module.exports = {
     extend: {
       colors: {
         background: '#111111',
+        yellow: {
+          300: '#FFE169',
+          400: '#FFD700',
+          500: '#FFB800',
+        },
       },
       keyframes: {
         'trace-fade': {
