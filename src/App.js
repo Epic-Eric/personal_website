@@ -312,10 +312,10 @@ function MainContent() {
             <div className="flex flex-col md:flex-row items-center gap-12">
               {/* Project Description */}
               <div className="md:w-6/12 order-md-1">
-                <h2 className="text-2xl font-bold mb-4">SimulEval @ FAIR</h2>
+                <h2 className="text-2xl font-bold mb-4 gradient-text">SimulEval @ FAIR 2024</h2>
                 <p className="text-lg text-white/60">
                   Developed features for SimulEval - FAIR's open source simultaneous translation evaluation toolkit - using Python. 
-                  Features include visualization, remote and live translation. Aided researchers in interpretting output from the wait-k algorithm. 
+                  Features include visualization, remote and live translation. Aid researchers in interpretting output from the wait-k algorithm. 
                   Check out the demo!
                 </p>
                 <div className="flex gap-4 mt-6">
@@ -359,6 +359,217 @@ function MainContent() {
                     src={process.env.PUBLIC_URL + '/test.png'}
                     alt="SimulEval Demo"
                     className="w-full object-cover aspect-[18.5/13.7] object-[50%_15%] transition-all duration-300"
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Viral Insight Project */}
+          <motion.div 
+            className="project-block bg-black/30 backdrop-blur-sm rounded-xl p-8 relative group mt-12"
+            whileHover={{ scale: 1.02 }}
+          >
+            <div className="flex flex-col md:flex-row items-center gap-12">
+              {/* Project Image - Left */}
+              <div className="md:w-6/12">
+                <div className="relative overflow-hidden rounded-xl">
+                  <img 
+                    src={process.env.PUBLIC_URL + '/viral-insight.png'}
+                    alt="Viral Insight Demo"
+                    className="w-full object-cover rounded-xl transition-all duration-300"
+                  />
+                </div>
+              </div>
+
+              {/* Project Description - Right */}
+              <div className="md:w-6/12">
+                <h2 className="text-2xl font-bold mb-4 gradient-text">Viral Insight @ Buildspace 2024</h2>
+                <p className="text-lg text-white/60">
+                  My friend Jinay Patel and I built a tool for YouTubers to brainstorm catchy titles. 
+                  We trained an AI regression model from scraped data from YouTube. This way, content creators 
+                  could compare between potential title names, maximize video performance and attract a wider audience. 
+                  We got 120+ upvotes on ProductHunt, 500+ page views on Vercel, and our first paying 
+                  customer ($45 USD!!) when we officially launched in 2024 Summer.
+                </p>
+                <div className="flex gap-4 mt-6">
+                  <a 
+                    href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary inline-flex items-center gap-2"
+                  >
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      viewBox="0 0 24 24" 
+                      className="w-5 h-5 fill-current"
+                    >
+                      <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                    </svg>
+                    <span>Launch Video</span>
+                  </a>
+                  <a 
+                    href="https://www.producthunt.com/posts/viral-insight"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary inline-flex items-center gap-2"
+                  >
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      viewBox="0 0 512 512" 
+                      className="w-5 h-5 fill-current"
+                    >
+                      <path d="M326.3 218.8c0 20.5-16.7 37.2-37.2 37.2h-70.3v-74.4h70.3c20.5 0 37.2 16.7 37.2 37.2zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-128.1-37.2c0-47.9-38.9-86.8-86.8-86.8H169.2v248h49.6v-74.4h70.3c47.9 0 86.8-38.9 86.8-86.8z"/>
+                    </svg>
+                    <span>Product Hunt</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Vita Project - Image Right */}
+          <motion.div 
+            className="project-block bg-black/30 backdrop-blur-sm rounded-xl p-8 relative group mt-12"
+            whileHover={{ scale: 1.02 }}
+          >
+            <div className="flex flex-col md:flex-row items-center gap-12">
+              {/* Project Description - Left */}
+              <div className="md:w-6/12">
+                <h2 className="text-2xl font-bold mb-4 gradient-text">Vita @ UBC Geering Up 2023</h2>
+                <p className="text-lg text-white/60">
+                  Many Indigenous communities in British Colombia have limited access to clean water 
+                  due to colonially polluted lakes and rivers. This is why I led my team to develop 
+                  a low-cost, zero-electricity, and sustainable water-filtration bottle. It's 3D printed 
+                  with food-grae PETG with a commercial filter. We successful showcased @ UBC Gala 
+                  with 500+ attendees.
+                </p>
+                <div className="flex gap-4 mt-6">
+                  <a 
+                    href="https://vitacanada.wixsite.com/2023"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary inline-flex items-center gap-2"
+                  >
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      viewBox="0 0 24 24" 
+                      className="w-5 h-5 fill-current"
+                    >
+                      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+                    </svg>
+                    <span>Website</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Project Image - Right */}
+              <div className="md:w-6/12">
+                <div className="relative overflow-hidden rounded-xl">
+                  <img 
+                    src={process.env.PUBLIC_URL + '/vita.jpg'}
+                    alt="Vita Water Filtration Bottle"
+                    className="w-full h-auto object-cover rounded-xl transition-all duration-300"
+                    style={{ maxHeight: '350px' }}
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Nail Braille Project - Image Left */}
+          <motion.div 
+            className="project-block bg-black/30 backdrop-blur-sm rounded-xl p-8 relative group mt-12"
+            whileHover={{ scale: 1.02 }}
+          >
+            <div className="flex flex-col md:flex-row items-center gap-12">
+              {/* Project Image - Left */}
+              <div className="md:w-6/12">
+                <div className="relative overflow-hidden rounded-xl">
+                  <img 
+                    src={process.env.PUBLIC_URL + '/nail-braille.jpg'}
+                    alt="Nail Braille Prototype"
+                    className="w-full h-auto object-cover rounded-xl transition-all duration-300"
+                    style={{ maxHeight: '350px' }}
+                  />
+                </div>
+              </div>
+
+              {/* Project Description - Right */}
+              <div className="md:w-6/12">
+                <h2 className="text-2xl font-bold mb-4 gradient-text">Nail Braille @ Shad Western 2022</h2>
+                <p className="text-lg text-white/60">
+                  1 million+ Canadians are visually impaired, but don't know braille, which tremendously 
+                  hinders their navigation and communication. Knowing this pain first hand from a friend 
+                  of mine, I led my team to develop a speech to braille learning device for visually 
+                  impaired individuals. It translates verbal speech with Mozilla DeepSpeech and displays 
+                  tactile pins on an Arduino board. This braille learning technique is more affordable 
+                  than tutoring, and more interactive than traditional books and pegs, winning us the 
+                  Best Prototype award.
+                </p>
+                <div className="flex gap-4 mt-6">
+                  <a 
+                    href="https://www.youtube.com/watch?v=VYJkUYOZFRU"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary inline-flex items-center gap-2"
+                  >
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      viewBox="0 0 24 24" 
+                      className="w-5 h-5 fill-current"
+                    >
+                      <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                    </svg>
+                    <span>Demo Video</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* VEX & FIRST Robotics Project - Image Right */}
+          <motion.div 
+            className="project-block bg-black/30 backdrop-blur-sm rounded-xl p-8 relative group mt-12"
+            whileHover={{ scale: 1.02 }}
+          >
+            <div className="flex flex-col md:flex-row items-center gap-12">
+              {/* Project Description - Left */}
+              <div className="md:w-6/12">
+                <h2 className="text-2xl font-bold mb-4 gradient-text">VEX & FIRST Robotics @ Ten Ton Robotics 2021 - 2024</h2>
+                <p className="text-lg text-white/60">
+                  Through 3 years of robotics competition, I have designed both hardware mechanisms 
+                  like chassis, four-bar lift, ratchet etc, and implemented software algorithm like 
+                  PID, odometry, and pure pursuit controller. I gained mechanical, electrical, and 
+                  programming experiences, leading my team to 3 World Championships.
+                </p>
+                <div className="flex gap-4 mt-6">
+                  <a 
+                    href="https://www.youtube.com/watch?v=eyDEXsmhFes"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary inline-flex items-center gap-2"
+                  >
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      viewBox="0 0 24 24" 
+                      className="w-5 h-5 fill-current"
+                    >
+                      <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                    </svg>
+                    <span>Odometry Demo</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Project Image - Right */}
+              <div className="md:w-6/12">
+                <div className="relative overflow-hidden rounded-xl">
+                  <img 
+                    src={process.env.PUBLIC_URL + '/1010n.png'}
+                    alt="Ten Ton Robotics"
+                    className="w-full h-auto object-cover rounded-xl transition-all duration-300"
+                    style={{ maxHeight: '350px' }}
                   />
                 </div>
               </div>
