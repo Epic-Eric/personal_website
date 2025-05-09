@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from 'react-type-animation';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import WebringBadge from './components/WebringBadge';
 import './App.css';
 
 function App() {
@@ -14,9 +16,16 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#111111] text-white">
-      {showIntro ? <IntroAnimation /> : <MainContent />}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/webring-badge" element={<WebringBadge />} />
+        <Route path="/" element={
+          <div className="min-h-screen bg-[#111111] text-white">
+            {showIntro ? <IntroAnimation /> : <MainContent />}
+          </div>
+        } />
+      </Routes>
+    </Router>
   );
 }
 
