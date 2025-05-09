@@ -65,7 +65,7 @@ function IntroAnimation() {
                L 215,100
                L 170,40
                L 200,40
-               L 235,70"
+               L 236,70"
             className="traced-letter-x"
             stroke="url(#gradient)"
             strokeWidth="4"
@@ -99,6 +99,21 @@ function MainContent() {
             <a href="#publications" className="text-white hover:text-yellow-300 transition-colors py-1">Publications</a>
             <a href="#projects" className="text-white hover:text-yellow-300 transition-colors py-1">Projects</a>
             <a href="#contact" className="text-white hover:text-yellow-300 transition-colors py-1">Contact</a>
+          </div>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: '15px',
+            backgroundColor: '#2a2a2a',
+            padding: '15px 25px',
+            borderRadius: '8px',
+            border: '1px solid #444'
+          }}>
+            <a href='https://webring.ayanali.net/#https://epiceric.tech?nav=prev' style={{ color: '#e0e0e0', textDecoration: 'none', fontSize: '1.5rem' }}>←</a>
+            <a href='https://webring.ayanali.net/#https://epiceric.tech' target='_blank'>
+                <img src='https://webring.ayanali.net/img/icon-dark.svg' alt='The Unnamed Webring' style={{ width: '32px', height: '32px' }}/>
+            </a>
+            <a href='https://webring.ayanali.net/#https://epiceric.tech?nav=next' style={{ color: '#e0e0e0', textDecoration: 'none', fontSize: '1.5rem' }}>→</a>
           </div>
         </div>
       </nav>
@@ -141,6 +156,7 @@ function MainContent() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.8 }}
+              className="flex space-x-4"
             >
               <a 
                 href={process.env.PUBLIC_URL + '/resume.pdf'} 
@@ -174,7 +190,7 @@ function MainContent() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-600 blur-2xl opacity-20"></div>
               <img 
-                src={process.env.PUBLIC_URL + '/selfie.png'}
+                src={process.env.PUBLIC_URL + '/selfie.png' || "/placeholder.svg"}
                 alt="Eric Xie"
                 className="relative rounded-2xl w-full object-cover aspect-[3/4]"
               />
@@ -204,7 +220,7 @@ function MainContent() {
                   </div>
                   <div className="absolute -right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 z-20">
                     <img 
-                      src={process.env.PUBLIC_URL + '/2.Piston_Spring_Cap.jpg'} 
+                      src={process.env.PUBLIC_URL + '/2.Piston_Spring_Cap.jpg' || "/placeholder.svg"} 
                       alt="Brake Piston Design"
                       className="w-64 h-64 object-cover rounded-xl shadow-2xl hover-image"
                     />
@@ -356,7 +372,7 @@ function MainContent() {
               <div className="md:w-6/12 order-md-2">
                 <div className="relative overflow-hidden rounded-xl">
                   <img 
-                    src={process.env.PUBLIC_URL + '/test.png'}
+                    src={process.env.PUBLIC_URL + '/test.png' || "/placeholder.svg"}
                     alt="SimulEval Demo"
                     className="w-full object-cover aspect-[18.5/13.7] object-[50%_15%] transition-all duration-300"
                   />
@@ -375,7 +391,7 @@ function MainContent() {
               <div className="md:w-6/12">
                 <div className="relative overflow-hidden rounded-xl">
                   <img 
-                    src={process.env.PUBLIC_URL + '/viral-insight.png'}
+                    src={process.env.PUBLIC_URL + '/viral-insight.png' || "/placeholder.svg"}
                     alt="Viral Insight Demo"
                     className="w-full object-cover rounded-xl transition-all duration-300"
                   />
@@ -467,7 +483,7 @@ function MainContent() {
               <div className="md:w-6/12">
                 <div className="relative overflow-hidden rounded-xl">
                   <img 
-                    src={process.env.PUBLIC_URL + '/vita.jpg'}
+                    src={process.env.PUBLIC_URL + '/vita.jpg' || "/placeholder.svg"}
                     alt="Vita Water Filtration Bottle"
                     className="w-full h-auto object-cover rounded-xl transition-all duration-300"
                     style={{ maxHeight: '350px' }}
@@ -487,7 +503,7 @@ function MainContent() {
               <div className="md:w-6/12">
                 <div className="relative overflow-hidden rounded-xl">
                   <img 
-                    src={process.env.PUBLIC_URL + '/nail-braille.jpg'}
+                    src={process.env.PUBLIC_URL + '/nail-braille.jpg' || "/placeholder.svg"}
                     alt="Nail Braille Prototype"
                     className="w-full h-auto object-cover rounded-xl transition-all duration-300"
                     style={{ maxHeight: '350px' }}
@@ -566,7 +582,7 @@ function MainContent() {
               <div className="md:w-6/12">
                 <div className="relative overflow-hidden rounded-xl">
                   <img 
-                    src={process.env.PUBLIC_URL + '/1010n.png'}
+                    src={process.env.PUBLIC_URL + '/1010n.png' || "/placeholder.svg"}
                     alt="Ten Ton Robotics"
                     className="w-full h-auto object-cover rounded-xl transition-all duration-300"
                     style={{ maxHeight: '350px' }}
@@ -648,4 +664,4 @@ export default App;
   .group:hover .overlay {
     opacity: 1;
   }
-`}</style> 
+`}</style>
