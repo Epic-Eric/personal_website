@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from 'react-type-animation';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import WebringBadge from './components/WebringBadge';
 import './App.css';
 
 function App() {
@@ -17,14 +16,11 @@ function App() {
 
   return (
     <Router>
-      <Routes>
-        <Route path="/webring-badge" element={<WebringBadge />} />
-        <Route path="/" element={
-          <div className="min-h-screen bg-[#111111] text-white">
-            {showIntro ? <IntroAnimation /> : <MainContent />}
-          </div>
-        } />
-      </Routes>
+      <div className="min-h-screen bg-[#111111] text-white">
+        <Routes>
+          <Route path="/" element={<MainContent />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
@@ -113,7 +109,7 @@ function MainContent() {
             display: 'flex', 
             alignItems: 'center', 
             gap: '15px',
-            backgroundColor: '#2a2a2a',
+            backgroundColor: '#111111',
             padding: '15px 25px',
             borderRadius: '8px',
             border: '1px solid #444'
